@@ -1,0 +1,26 @@
+.cardContainer {
+    display: flex;
+    align-items: center; // zarovná obrázek a text ve středu ve vertikálním směru
+    gap: 16px; // vytvoří mezeru mezi obrázkem a textem
+
+    .imageWrapper {
+        flex-shrink: 0; // zabrání změně velikosti obrázku
+    }
+
+    .textWrapper {
+        display: flex;
+        flex-direction: column;
+
+        .name {
+            font-weight: bold;
+        }
+
+        .func {
+            // styl pro popis funkce
+        }
+
+        .price {
+            // styl pro cenu
+        }
+    }
+}
