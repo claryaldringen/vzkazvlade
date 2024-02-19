@@ -1,19 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import styles from './Homepage.module.scss';
 import QRCode from 'react-qr-code';
-import Select, { SingleValue } from 'react-select';
+import Select from 'react-select';
 import { Card } from '../components/Card/Card';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-interface OptionType {
-    label: JSX.Element;
-    value: string;
-}
-
-const options: OptionType[] = [
+const options: any[] = [
     {
         value: 'fiala',
         label: (
@@ -42,7 +37,7 @@ const options: OptionType[] = [
 
 const HomePage = () => {
     const [value, setValue] = useState('');
-    const [person, setPerson] = useState<SingleValue<OptionType | null>>(null);
+    const [person, setPerson] = useState(null);
 
     const handleClick = useCallback(async () => {
         const res = await fetch('/api/send');
@@ -115,11 +110,11 @@ const HomePage = () => {
             </div>
             <footer className={styles.footer}>
                 <div className={styles.left}>
-                Provozuje: Freetech Ltd.,New Horizon Building, Ground Floor,
-                31⁄2 Miles Philip S.W. Goldson Highway, Belize City, Belize
+                    Provozuje: Freetech Ltd.,New Horizon Building, Ground Floor,
+                    31⁄2 Miles Philip S.W. Goldson Highway, Belize City, Belize
                 </div>
                 <div className={styles.right}>
-                <a href="/obchodni-podminky">Obchodní podmínky</a>
+                    <a href="/obchodni-podminky">Obchodní podmínky</a>
                 </div>
             </footer>
         </div>

@@ -5,9 +5,9 @@ import Head from 'next/head';
 const App = ({ Component, pageProps }: AppProps) => {
     return (
         <>
-            {' '}
             <Head>
                 <link rel="icon" href="/favicon.jpeg" />
+                <title>Vzkaz fialové vládě</title>
             </Head>
             <Component {...pageProps} />
         </>

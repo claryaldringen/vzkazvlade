@@ -1,44 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import styles from './Homepage.module.scss';
-import QRCode from 'react-qr-code';
-import Select, { SingleValue } from 'react-select';
-import { Card } from '../components/Card/Card';
-import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
-
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-
-interface OptionType {
-    label: JSX.Element;
-    value: string;
-}
-
-const options: OptionType[] = [
-    {
-        value: 'fiala',
-        label: (
-            <Card
-                name="prof. PhDr. Petr Fiala, Ph.D., LL.M., dr. h. c."
-                slug="fiala"
-                func="Předseda vlády České republiky"
-                party="ODS"
-                price={10}
-            />
-        ),
-    },
-    {
-        value: 'pekarova',
-        label: (
-            <Card
-                name="Ing. Markéta Pekarová Adamová"
-                slug="pekarova"
-                func="Předsedkyně Poslanecké sněmovny PČR"
-                party="TOP 09"
-                price={10}
-            />
-        ),
-    },
-];
 
 const Podminky = () => {
     return (

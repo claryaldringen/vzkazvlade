@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { FC } from 'react';
 import styles from './Card.module.scss';
 
-type Props = {
+export type CardProps = {
     name: string;
     slug: string;
     func: string;
@@ -10,7 +10,7 @@ type Props = {
     price: number;
 };
 
-export const Card: FC<Props> = ({ name, slug, func, party, price }) => (
+export const Card: FC<CardProps> = ({ name, slug, func, party, price }) => (
     <div className={styles.cardContainer}>
         <div className={styles.imageWrapper}>
             <Image
