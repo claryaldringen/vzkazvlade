@@ -33,6 +33,102 @@ const options: any[] = [
             />
         ),
     },
+    {
+        value: 'novotny',
+        label: (
+            <Card
+                name="Pavel Novotný, DiS."
+                slug="novotny"
+                func="Starosta městské části Praha-Řeporyje"
+                party="ODS"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'cernochova',
+        label: (
+            <Card
+                name="Mgr. Jana Černochová"
+                slug="cernochova"
+                func="Ministryně obrany ČR"
+                party="ODS"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'valek',
+        label: (
+            <Card
+                name="prof. MUDr. Vlastimil Válek, CSc., MBA, EBIR"
+                slug="valek"
+                func="Ministr zdravotnictví ČR"
+                party="TOP 09"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'bartos',
+        label: (
+            <Card
+                name="PhDr. Ivan Bartoš, Ph.D."
+                slug="bartos"
+                func="Ministr pro místní rozvoj ČR"
+                party="Piráti"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'lipavsky',
+        label: (
+            <Card
+                name="Bc. Jan Lipavský"
+                slug="lipavsky"
+                func="Ministr zahraničních věcí"
+                party="Piráti"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'jurecka',
+        label: (
+            <Card
+                name="Ing. Marian Jurečka"
+                slug="jurecka"
+                func="Ministr práce a sociálních věcí ČR"
+                party="KDU-ČSL"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'stanjura',
+        label: (
+            <Card
+                name="Ing. Zbyněk Stanjura"
+                slug="stanjura"
+                func="Ministr financí ČR"
+                party="ODS"
+                price={10}
+            />
+        ),
+    },
+    {
+        value: 'sikela',
+        label: (
+            <Card
+                name="Ing. Jozef Síkela"
+                slug="sikela"
+                func="Ministr průmyslu a obchodu"
+                party="STAN"
+                price={10}
+            />
+        ),
+    },
 ];
 
 const HomePage = () => {
