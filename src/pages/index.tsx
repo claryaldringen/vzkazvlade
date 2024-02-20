@@ -191,7 +191,7 @@ const HomePage = () => {
                     <div className={styles.qr}>
                         <QRCode
                             size={256}
-                            value="SPD*1.0*ACC:CZ4620100000002302111610*AM:10.00*CC:CZK*MSG:VZKAZ VLADE*X-VS:20240219*PT:IP"
+                            value="SPD*1.0*ACC:CZ4620100000002302111610*AM:10.00*CC:CZK*X-VS:20240219*PT:IP"
                         />
                     </div>
                     <div className={styles.buttonWrapper}>
