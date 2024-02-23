@@ -1,0 +1,16 @@
+/* components/CookieConsent.module.css */
+.consentContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: calc(100vw - 80px);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: solid 1px darkviolet;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.consentText {
+  margin-bottom: 10px; /* Přidáváme trochu prostoru nad tlačítkem */
+}
