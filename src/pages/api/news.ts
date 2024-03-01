@@ -1,7 +1,7 @@
 import Parser from 'rss-parser';
 
 // Funkce pro míchání položek
-function shuffleArray(array) {
+function shuffleArray(array: any) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]]; // ES6 způsob prohození hodnot
@@ -9,7 +9,7 @@ function shuffleArray(array) {
     return array;
 }
 
-export default async (req, res) => {
+export default async (req: any, res: any) => {
     const parser = new Parser();
     const feedUrls = [
         'https://www.vidlakovykydy.cz/rss.xml', // URL prvního feedu

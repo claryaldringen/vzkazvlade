@@ -2,8 +2,9 @@ import styles from './Homepage.module.scss';
 import Footer from '@components/Footer/Footer';
 import React from 'react';
 import Message from '@components/Message/Message';
-import { prepareToPublish } from '@components/News/News';
-import Header from "@components/Header/Header";
+import { Item, prepareToPublish } from '@components/News/News';
+import Header from '@components/Header/Header';
+import { GetServerSideProps } from 'next';
 
 interface ItemPageProps {
     content: string;
@@ -24,17 +25,25 @@ const ItemPage = ({ content, title }: ItemPageProps) => {
     );
 };
 
-export const getServerSideProps = async context => {
-    const { slug } = context.params;
+export const getServerSideProps: GetServerSideProps<ItemPageProps> = async ({
+    query,
+}) => {
+    let slug = query.slug;
+    if (Array.isArray(slug)) {
+        slug = slug[0];
+    }
 
     // Zavolejte váš API endpoint pro získání dat
     const res = await fetch(`http://localhost:3000/api/news`);
-    const data = await res.json();
+    const data: Item[] = await res.json();
 
     // Najděte konkrétní článek v RSS feedu podle slugu
-    const item = data.find(item => item.link.replace(/\/$/, '').endsWith(slug));
+    const item = data.find(item =>
+        item.link.replace(/\/$/, '').endsWith(String(slug)),
+    );
 
     // Zkontrolujte, zda byl článek nalezen
+
     if (!item) {
         return {
             notFound: true,
