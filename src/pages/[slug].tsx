@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps<ItemPageProps> = async ({
 
     // Zavolejte váš API endpoint pro získání dat
     const url =
-        process.env.NODE_ENV === 'production'
+        process.env.NODE_ENV === 'develop'
             ? 'http://localhost:3000'
             : 'https://vzkazvlade.cz/';
     const res = await fetch(`${url}/api/news`);
