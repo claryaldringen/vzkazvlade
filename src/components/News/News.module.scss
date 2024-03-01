@@ -1,0 +1,5 @@
+.snippet {
+    max-height: 242px;
+    overflow: hidden; /* Skryje text, který přesahuje šířku elementu */
+    text-overflow: ellipsis; /* Přidá tři tečky na konec oříznutého textu */
+}
