@@ -11,7 +11,9 @@ const Header = () => {
 
     return (
         <div className={styles.header}>
-            <h1 className={styles.h1}>Vzkaz Fialové vládě!!!</h1>
+            <a href="/">
+                <h1 className={styles.h1}>Vzkaz Fialové vládě!!!</h1>
+            </a>
             <button className={styles.button} onClick={scrollToMessage}>
                 Poslat vzkaz
             </button>
