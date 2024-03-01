@@ -1,5 +1,4 @@
 import styles from '../../pages/Homepage.module.scss';
-import News from '@components/News/News';
 import Select from 'react-select';
 import QRCode from 'react-qr-code';
 import React, { useCallback, useState } from 'react';

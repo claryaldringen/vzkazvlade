@@ -5,6 +5,7 @@ import Message from '@components/Message/Message';
 import { Item, prepareToPublish } from '@components/News/News';
 import Header from '@components/Header/Header';
 import { GetServerSideProps } from 'next';
+import 'react-quill/dist/quill.snow.css';
 
 interface ItemPageProps {
     content: string;
