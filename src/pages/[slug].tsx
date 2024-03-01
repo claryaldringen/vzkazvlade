@@ -34,7 +34,11 @@ export const getServerSideProps: GetServerSideProps<ItemPageProps> = async ({
     }
 
     // Zavolejte váš API endpoint pro získání dat
-    const res = await fetch(`/api/news`);
+    const url =
+        process.env.NODE_ENV === 'production'
+            ? 'http://localhost:3000'
+            : 'https://vzkazvlade.cz/';
+    const res = await fetch(`${url}/api/news`);
     const data: Item[] = await res.json();
 
     // Najděte konkrétní článek v RSS feedu podle slugu
