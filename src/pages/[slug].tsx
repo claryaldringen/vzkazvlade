@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps<ItemPageProps> = async ({
     }
 
     // Zavolejte váš API endpoint pro získání dat
-    const res = await fetch(`http://localhost:3000/api/news`);
+    const res = await fetch(`/api/news`);
     const data: Item[] = await res.json();
 
     // Najděte konkrétní článek v RSS feedu podle slugu
