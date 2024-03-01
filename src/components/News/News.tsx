@@ -6,8 +6,6 @@ const fetchNews = async () => {
     const res = await fetch('/api/news');
     const data = await res.json();
 
-    console.log(data);
-
     return data;
 };
 
@@ -47,6 +45,10 @@ const News = () => {
     useEffect(() => {
         fetchNews().then(setNews);
     }, []);
+
+    if(!news?.length) {
+        return null;
+    }
 
     return (
         <div>

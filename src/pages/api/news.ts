@@ -14,26 +14,32 @@ export default async (req: any, res: any) => {
     const feedUrls = [
         'https://www.vidlakovykydy.cz/rss.xml', // URL prvního feedu
         'https://aeronet.news/feed/', // URL druhého feedu
+        'https://www.parlamentnilisty.cz/export/rss.aspx?tag=fiala'
         // Přidejte další URL feedů podle potřeby
     ];
 
-    try {
-        // Paralelní načtení všech feedů
-        const feeds = await Promise.all(
-            feedUrls.map(url => parser.parseURL(url)),
-        );
+    // Paralelní načtení všech feedů s ošetřením selhání
+    const feedPromises = feedUrls.map(url =>
+        parser.parseURL(url).then(
+            feed => ({ status: 'fulfilled', value: feed }),
+            error => ({ status: 'rejected', reason: error }),
+        ),
+    );
 
-        // Sloučení všech položek z načtených feedů do jednoho pole
-        const allItems = feeds.flatMap(feed => feed.items);
+    const feedResults = await Promise.allSettled(feedPromises);
 
-        // Promíchání sloučených položek
-        const shuffledItems = shuffleArray(allItems);
+    console.log(feedResults)
 
-        res.status(200).json(shuffledItems);
-    } catch (error) {
-        res.status(500).json({
-            message: 'Chyba při načítání RSS feedů',
-            error,
-        });
-    }
+    // Filtrujte jen úspěšně načtené feedy
+    const successfulFeeds = feedResults
+        .filter(result => result.status === 'fulfilled' && result.value.status === 'fulfilled')
+        .map(result => (result as PromiseFulfilledResult<any>).value.value);
+
+    // Sloučení všech položek z úspěšně načtených feedů do jednoho pole
+    const allItems = successfulFeeds.flatMap(feed => feed.items);
+
+    // Promíchání sloučených položek
+    const shuffledItems = shuffleArray(allItems);
+
+    res.status(200).json(shuffledItems);
 };
