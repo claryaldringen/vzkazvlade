@@ -13,7 +13,7 @@ export default async (req: any, res: any) => {
     const parser = new Parser();
     const feedUrls = [
         'https://www.vidlakovykydy.cz/rss.xml', // URL prvního feedu
-        'https://aeronet.news/feed/', // URL druhého feedu
+        // 'https://aeronet.news/feed/', // URL druhého feedu
         'https://www.parlamentnilisty.cz/export/rss.aspx?tag=fiala'
         // Přidejte další URL feedů podle potřeby
     ];
